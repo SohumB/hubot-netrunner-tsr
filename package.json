@@ -1,0 +1,20 @@
+{
+  "name": "hubot-netrunner-tsr",
+  "description": "A hubot script to output netrunner's timing structure of a run",
+  "version": "0.0.1",
+  "author": "Sohum Banerjea <sohumb@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "netrunner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SohumB/hubot-netrunner-tsr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SohumB/hubot-netrunner-tsr/issues"
+  },
+  "main": "index.coffee"
+}
