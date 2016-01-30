@@ -133,42 +133,48 @@ function last(tsr) {
   return last(tsr.sub[Object.keys(tsr.sub).sort().reverse()[0]]);
 }
 
+function go(res, from, to) {
+  if (!from && !to) {
+    from = "1";
+    to = "6";
+  }
+
+  function chattyFind(str) {
+    var found = find(str, tsr);
+    if (!found) {
+      res.send("Could not find TSR section \"" + str + "\"");
+    }
+    return found;
+  }
+
+  function say(flattened) {
+    res.send(flattened.map(function (line) {
+      return line.text;
+    }).join("\n"));
+  }
+
+  if (from && to) {
+    var start = chattyFind(from);
+    var end = chattyFind(to);
+    if (start && end) {
+      say(range(start, last(end)));
+    }
+  } else if (from) {
+    var section = chattyFind(from);
+    if (section) {
+      say(flatten(section));
+    }
+  } else {
+    throw new Exception("Something weird has happened! from:" + from + " to:" + to);
+  }
+}
+
 module.exports = function (robot) {
   robot.respond(/tsr( ([a-zA-Z0-9\.]*)(-([a-zA-Z0-9\.]*))?)?/, function (res) {
-    var from = res.match[2];
-    var to = res.match[4];
-    if (!from && !to) {
-      from = "1";
-      to = "6";
-    }
+    go(res, res.match[2], res.match[4]);
+  });
 
-    function chattyFind(str) {
-      var found = find(str, tsr);
-      if (!found) {
-        res.send("Could not find TSR section \"" + str + "\"");
-      }
-      return found;
-    }
-
-    function say(flattened) {
-      res.send(flattened.map(function (line) {
-        return line.text;
-      }).join("\n"));
-    }
-
-    if (from && to) {
-      var start = chattyFind(from);
-      var end = chattyFind(to);
-      if (start && end) {
-        say(range(start, last(end)));
-      }
-    } else if (from) {
-      var section = chattyFind(from);
-      if (section) {
-        say(flatten(section));
-      }
-    } else {
-      throw new Exception("Something weird has happened! from:" + from + " to:" + to);
-    }
+  robot.hear(/tsr\/([a-zA-Z0-9\.]+)(-([a-zA-Z0-9\.]*))?/, function(res) {
+    go(res, res.match[1], res.match[3]);
   });
 };

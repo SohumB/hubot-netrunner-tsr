@@ -38,4 +38,6 @@ hubot>> *2*: The Runner _*approaches*_ the outermost piece of ice not already ap
 > Or the Runner _*passes*_ the ice and the run continues:
 > If there is another piece of ice protecting the server, go to [Step 2]
 > If there is not another piece of ice protecting the server, go to [Step 4].
+user3>> caprice triggers in tsr/4.0
+hubot>> *4*: The Runner _*approaches*_ the attacked server _("When the Runner passes all ice" conditionals meet their trigger condition)_
 ```
