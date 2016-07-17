@@ -19,7 +19,7 @@
 var tsr = {
   sub: {
     "1": {
-      text: "The Runner initiates a _*run*_ and declares the _*attacked server*_\n> The Runner then collects Bad Publicity credits\n> If the attacked server has one or more pieces of ice protecting it, go to [Step 2].\n> If the attacked server does not have ice protecting it, go to [Step 4]."
+      text: "The Runner initiates a _*run*_ and declares the _*attacked server*_\n> The Runner gains 1:credit: to spend for each point of bad publicity the Corp has. If the attacked server has one or more pieces of ice protecting it, go to [Step 2].\n> If the attacked server does not have ice protecting it, go to [Step 4]."
     },
     "2": {
       text: "The Runner _*approaches*_ the outermost piece of ice not already approached on the attacked server",
@@ -39,7 +39,7 @@ var tsr = {
       sub: {
         "3.1": { text: "Paid abilities may be used, icebreakers may interact with encountered ice." },
         "3.2": {
-          text: "Resolve all subroutines not broken on the encountered ice\n> Either the run ends: go to [Step 6]\n> Or the Runner _*passes*_ the ice and the run continues:\n> If there is another piece of ice protecting the server, go to [Step 2]\n> If there is not another piece of ice protecting the server, go to [Step 4]."
+          text: "Resolve all subroutines not broken on the encountered ice\n>...Either the run ends: You are no longer encountering this ice, go to [Step 6]\n>...Or the run continues: The encounter ends. The ice is _*passed*_. If there is another piece of ice protecting the server, go to [Step 2]; if there is not another piece of ice protecting the server, go to [Step 4]."
         }
       }
     },
@@ -53,12 +53,12 @@ var tsr = {
         "4.3": { text: "Paid abilities may be used, non-ice cards may be rezzed" },
         "4.4": { text: "The run is considered to be successful _(\"when successful\" conditionals meet their trigger conditions)_" },
         "4.5": {
-          text: "Access cards, then go to [Step 5]\n> If an _*agenda*_ is accessed, the Runner _*steals*_ it.\n> If a card with a _*trash cost*_ is accessed, the Runner may pay its trash cost to _*trash*_ it.\n> All accessed cards not stolen or trashed are returned to the server in their previous states."
+          text: "Determine the number of cards to be accessed. Access cards, then go to [Step 5].\n> If an _*agenda*_ is accessed, the Runner _*steals*_ it.\n> If a card with a _*trash cost*_ is accessed, the Runner may pay its trash cost to _*trash*_ it.\n> All accessed cards not stolen or trashed are returned to the server in their previous states."
         }
       }
     },
-    "5": { text: "The run ends." },
-    "6": { text: "The run ends and is considered to be _*unsuccessful*_ _(\"when unsuccessful\" conditionals meet their trigger conditions)_" }
+    "5": { text: "The run ends. The Runner loses any unspent bad publicity credits. _(\"When the run ends\" conditions meet their trigger conditions)_" },
+    "6": { text: "The run ends and is considered to be _*unsuccessful*_. The Runner loses any unspent bad publicity credits. _(\"When unsuccessful\" and \"When the run ends\" conditionals meet their trigger conditions)_" }
   }
 };
 
