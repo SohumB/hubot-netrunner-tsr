@@ -1,7 +1,7 @@
 {
   "name": "hubot-netrunner-tsr",
   "description": "A hubot script to output netrunner's timing structure of a run",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Sohum Banerjea <sohumb@gmail.com>",
   "license": "MIT",
   "keywords": [
